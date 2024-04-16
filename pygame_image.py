@@ -16,6 +16,7 @@ def main():
     kk_rct.center = 300, 200
     bg_img2 = pg.transform.flip(bg_img, True, False)
     tmr = 0
+    kk_rct.center = 300, 200
     while True:
         for event in pg.event.get():
             if event.type == pg.QUIT: return
@@ -27,13 +28,14 @@ def main():
         if key_lst[pg.K_LEFT]:
             kk_rct.move_ip((-1, 0))
         if key_lst[pg.K_RIGHT]:
-            kk_rct.move_ip((1, 0))
+            kk_rct.move_ip((2, 0))
+        else:
+            kk_rct.move_ip((-1, 0))
         x = tmr%3200 #練習6
         screen.blit(bg_img, [-x, 0]) #練習6
         screen.blit(bg_img2, [-x+1600, 0])
         screen.blit(bg_img, [-x+3200, 0])
         screen.blit(bg_img2, [-x+4800, 0])
-
         screen.blit(kk_img, kk_rct) #練習4
         pg.display.update()
         tmr += 1        
